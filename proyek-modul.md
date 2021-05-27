@@ -11,11 +11,13 @@ My parts:
 
 ## 1.1. Input
 
-## 1.2. Branching: if dan if-else
+## 1.2. Branching
 
-## 1.3. Branching: if-elif-else
+### 1.2.1. Struktur if-else
 
-## 1.4. Branching: switch-case
+### 1.2.2 Branching: if-elif-else
+
+### 1.2.3. Branching: switch-case
 
 ---
 
