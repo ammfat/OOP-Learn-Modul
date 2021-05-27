@@ -15,9 +15,11 @@ My parts:
 
 ### 1.2.1. Struktur if-else
 
-### 1.2.2 Branching: if-elif-else
+Here is the content...
 
-### 1.2.3. Branching: switch-case
+### 1.2.2 Struktur if-elif-else
+
+### 1.2.3. Struktur switch-case
 
 ---
 
