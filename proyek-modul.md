@@ -11,11 +11,41 @@ My parts:
 
 ## 1.1. Input
 
+Sebuah program aplikasi yang kompleks akan memerlukan interaksi antara pengguna dengan program. Pengguna dapat berinteraksi dengan program dengan cara memberikan masukan (_input_). Pada materi ini, akan dibahas bagaimana pengguna dapat memberikan _input_ melalui _keyboard_.
+
+Agar program dapat menerima masukan dari pengguna, pertama Anda harus mengimpor _class_ `java.util.Scanner`, dengan cara menambahkan baris berikut sebelum deklarasi _class_ yang melakukan proses _input_.
+
+```
+import java.util.Scanner;
+```
+
+Selanjutnya, di dalam _class_ yang membutuhkan _input_, deklarasikan _object_ dari _class_ Scanner, misal:
+
+```
+public class AmbilInput {
+    Scanner scanner = new Scanner(System.in);
+}
+```
+
+... Terdapat beberapa _method_ yang dapat digunakan untuk menerima _input_, satu _method_ untuk tiap tipe data.
+
+-   .nextInt() : untuk menerima tipe data integer
+-   .nextShort() : untuk menerima tipe data short
+-   .nextLong() : untuk menerima tipe data long
+-   .nextDouble() : untuk menerima tipe data double
+-   .nextFloat() : untuk menerima tipe data float
+-   .nextLine() : untuk menerima tipe data string
+-   .nextBoolean() : untuk menerima tipa data boolean
+
+### Contoh 1: Salam
+
 ## 1.2. Branching
 
 ### 1.2.1. Struktur if-else
 
-Here is the content...
+#### Contoh 1
+
+hahaha
 
 ### 1.2.2 Struktur if-elif-else
 
@@ -192,7 +222,9 @@ Pada tubuh perulangan, terdapat blok `if ... else ...` yang digunakan untuk meme
 
 Hal paling penting dalam perulangan, termasuk `while`, adalah memastikan bahwa pada suatu titik perulangan harus berhenti. Pada kasus ini, perulangan harus berhenti ketika nilai `i` lebih dari nilai `n`. Agar nilai `i` bertambah setiap statement selesai dieksekusi, perlu ditambahkan operasi yang menambah nilai `i` pada tubuh perulangan. Hal ini dapat dilakukan dengan statement `i++` tepat sebelum tubuh perulangan `while` ditutup.
 
-### Contoh 2: Deret Bilangan Prima
+### Contoh 2: Deret Bilangan Prima (Nested Loop)
+
+Sebuah perulangan juga dapat ditempatkan di dalam perulangan lainnya. Ini disebut perulangan bersarang (_nested loop_). Berikut adalah contoh penerepan _nested loop_ dengan `while`.
 
 ```
 import java.util.Scanner;
@@ -209,10 +241,12 @@ public class WhilePrimeSeries {
         System.out.print("Masukkan panjang deret: ");
         int n = scanner.nextInt();
 
+        // Outer loop
         while (i <= n) {
             counter = 0;
             int j = 1;
 
+            // Inner loop
             while (j <= i) {
                 if (i % j == 0) {
                     counter += 1;
