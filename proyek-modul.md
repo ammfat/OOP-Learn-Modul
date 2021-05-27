@@ -14,6 +14,7 @@ My parts:
 ## 2.1. For
 
 Perulangan `for` umum digunakan apabila jumlah perulangan telah/dapat diketahui secara pasti. Pernyataan pada badan perulangan akan terus dieksekusi hingga kondisi bernilai False.
+
 Perulangan for memiliki bentuk dasar sebagai berikut.
 
 ```
@@ -75,7 +76,7 @@ public class ForLoop {
 }
 ```
 
-Coba Anda modifikasi program di atas agar bisa digunakan untuk menentukan apakah suatu bilangan merupakan bilangan prima atau bukan.
+Cobalah modifikasi program di atas agar bisa digunakan untuk menentukan apakah suatu bilangan merupakan bilangan prima atau bukan.
 
 ### Contoh 4: Segitiga Bintang Terbalik
 
@@ -127,11 +128,12 @@ public class SegitigaBeraksi {
 }
 ```
 
-Coba Anda modifikasi program di atas agar output segitiga yang dihasilkan tidak terbalik.
+Cobalah modifikasi program di atas agar output segitiga yang dihasilkan tidak terbalik.
 
 ## 2.2. While
 
 Pada perulangan `while`, pengecekan kondisi dilakukan di awal blok (sama seperti perulangan `for`). Apabila kondisi tidak terpenuhi (bernilai false) maka proses pengulangan tidak akan pernah dilakukan atau tidak berjalan.
+
 Perulangan while memiliki bentuk dasar sebagai berikut.
 
 ```
@@ -166,9 +168,9 @@ public class WhileLoop {
 }
 ```
 
-Baris `int i = 1` melakukan deklarasi dan inisiasi pada variabel `i`, yang akan digunakan sebagai variabel acuan kondisi perulangan.
+Berbeda dengan perulangan `for`, pada `while` inisiasi tidak dapat dilakukan pada blok `while()`. Oleh sebab itu, dituliskan baris `int i = 1;` untuk melakukan deklarasi dan inisiasi pada variabel `i`, yang akan digunakan sebagai variabel acuan kondisi perulangan.
 
-Berbeda dengan perulangan `for`, pada `while` inisiasi tidak dapat dilakukan pada blok `while()`. Dari baris `while (i <= n)`, dapat diketahui bahwa perulangan akan dilakukan selama nilai `i` kurang dari atau sama dengan `n`. Nilai `n` diperoleh dari masukan pengguna melalui baris `int n = scanner.nextInt();`.
+Dari baris `while (i <= n)`, dapat diketahui bahwa perulangan akan dilakukan selama nilai `i` kurang dari atau sama dengan `n`. Nilai `n` diperoleh dari masukan pengguna melalui baris `int n = scanner.nextInt();`.
 
 Pada tubuh perulangan, terdapat blok `if ... else ...` yang digunakan untuk memeriksa apakah suatu bilangan termasuk bilangan ganjil atau genap.
 
@@ -214,6 +216,77 @@ public class WhilePrimeSeries {
 
         System.out.println("Prime Series = " + isPrime);
         System.out.println("Non-prime Series = " + isNotPrime);
+    }
+}
+```
+
+## 2.3. Do-While
+
+Struktur do-while memiliki bentuk yang mirip dengan `while`. Hanya saja, pada `do-while`, pengecekan kondisi dilakukan setelah tubuh perulangan. Dengan struktur demikian, maka perulangan pasti dimasuki setidaknya sebanyak satu kali meskipun kondisi bernilai `false`.
+
+Perulangan while memiliki bentuk dasar sebagai berikut.
+
+```
+do {
+    pernyataan
+} while(kondisi);
+```
+
+### Contoh 1: Mencetak Huruf Alfabet (A-Z)
+
+```
+public class DoWhileAlfabet {
+
+    public static void main(String[] args) {
+        char c = 'A';
+
+        do {
+            System.out.println(c);
+            c++;
+        } while(c <= 'Z');
+    }
+}
+```
+
+Ada sesuatu yang 'berbeda' dengan contoh di atas? Ya, selain menggunakan tipe data angka sebagaimana pada contoh-contoh sebelumnya, Java juga mendukung penggunaan tipe data `char` sebagai _iterator_ perulangan. Ini berlaku untuk semua jenis perulangan (tidak hanya pada `do-while`).
+
+Cobalah modifikasi program di atas agar menghasilkan output huruf 'Z' sampai dengan 'A'.
+
+### Contoh 2: Menentukan Bilangan Prima
+
+```
+import java.util.Scanner;
+
+public class DoWhilePrima {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int i = 1;
+        int counter;
+
+        System.out.print("Masukkan banyak bilangan: ");
+        int n = scanner.nextInt();
+
+        while (i <= n) {
+            counter = 0;
+            int j = 1;
+
+            while (j <= i) {
+                if (i % j == 0) {
+                    counter += 1;
+                }
+
+                j++;
+            }
+
+            if (counter == 2) {
+                System.out.println(i + " adalah bilangan PRIMA");
+            } else {
+                System.out.println(i + " adalah bilangan NON-PRIMA");
+            }
+
+            i++;
+        }
     }
 }
 ```
