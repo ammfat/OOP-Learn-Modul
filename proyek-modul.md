@@ -1,9 +1,21 @@
 My parts:
 
 1. Input dan Branching
-2. Looping
+2. Looping [DONE]
 3. Array
 4. ArrayList
+
+---
+
+# 1. Input dan Branching
+
+## 1.1. Input
+
+## 1.2. Branching: if dan if-else
+
+## 1.3. Branching: if-elif-else
+
+## 1.4. Branching: switch-case
 
 ---
 
