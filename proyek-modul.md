@@ -1,12 +1,20 @@
-# Looping
+My parts:
+
+1. Input dan Branching
+2. Looping
+3. Array
+4. ArrayList
 
 ---
 
+# 2. Looping
+
 **Looping** (perulangan) merupakan proses di dalam program yang dapat mengeksekusi beberapa _statement_ yang sama secara berulang-ulang sampai ada kondisi yang membuatnya berhenti. Terdapat tiga jenis perulangan, yaitu for, while, dan do-while.
 
-## 1. For
+## 2.1. For
 
-Perulangan for umum digunakan apabila jumlah perulangan telah/dapat diketahui secara pasti. Pernyataan pada badan perulangan akan terus dieksekusi hingga kondisi bernilai False. Perulangan for memiliki bentuk dasar sebagai berikut.
+Perulangan `for` umum digunakan apabila jumlah perulangan telah/dapat diketahui secara pasti. Pernyataan pada badan perulangan akan terus dieksekusi hingga kondisi bernilai False.
+Perulangan for memiliki bentuk dasar sebagai berikut.
 
 ```
 for (inisiasi; kondisi; penaikan_penurunan) {
@@ -47,7 +55,7 @@ public class ForLoop {
 
 Perbedaan dari For penaikan (_increment_) dan penurunan (_decrement_) hanyalah pada bagian `i--`. Konsep penaikan dan penurunan ini dapat digunakan pada seluruh bentuk perulangan, tidak hanya perulangan `for`.
 
-### Contoh 3
+### Contoh 3: Dengan Branching
 
 Tak hanya statement sederhana seperti pada contoh-contoh sebelumnya, statement pengkondisian, input, bahkan perulangan lain pun bisa dimasukkan di dalam tubuh perulangan. Berikut adalah contoh penggunaan perulangan untuk mencari bilangan ganjil dan genap.
 
@@ -67,6 +75,145 @@ public class ForLoop {
 }
 ```
 
-Coba Anda kembangkan program di atas agar bisa digunakan untuk menentukan apakah suatu bilangan merupakan bilangan prima atau bukan.
+Coba Anda modifikasi program di atas agar bisa digunakan untuk menentukan apakah suatu bilangan merupakan bilangan prima atau bukan.
 
-## 2. While
+### Contoh 4: Segitiga Bintang Terbalik
+
+Perhatikan struktur teks berikut!
+
+```
+*****
+****
+***
+**
+*
+```
+
+Dengan menggunakan konsep perulangan, struktur diatas juga dapat dihasilkan.
+
+**Class Segitiga**
+
+```
+public class Segitiga {
+    private int lebar;
+
+    public Segitiga(int lebar) {
+        this.lebar = lebar;
+    }
+
+    public String gambarSegitiga() {
+        String r = "";
+
+        for (int i = lebar; i > 0; i--) {
+            for (int j = i; j > 0; j--) {
+                r = r + "*";
+            }
+            r = r + "\n";
+        }
+
+        return r;
+    }
+}
+```
+
+**Class SegitigaBeraksi**
+
+```
+public class SegitigaBeraksi {
+    public static void main(String[] args) {
+        Segitiga segitigaKu = new Segitiga(5);
+        System.out.println(segitigaKu.gambarSegitiga());
+    }
+}
+```
+
+Coba Anda modifikasi program di atas agar output segitiga yang dihasilkan tidak terbalik.
+
+## 2.2. While
+
+Pada perulangan `while`, pengecekan kondisi dilakukan di awal blok (sama seperti perulangan `for`). Apabila kondisi tidak terpenuhi (bernilai false) maka proses pengulangan tidak akan pernah dilakukan atau tidak berjalan.
+Perulangan while memiliki bentuk dasar sebagai berikut.
+
+```
+while (kondisi) {
+    pernyataan
+}
+```
+
+### Contoh 1: Menentukan Bilangan Genap/Ganjil
+
+```
+import java.util.Scanner;
+
+public class WhileLoop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int i = 1;
+        System.out.print("Masukkan banyak bilangan: ");
+        int n = scanner.nextInt();
+
+        while (i <= n) {
+            if (i % 2 == 0) {
+                System.out.println(i + " adalah bilangan GENAP");
+            } else {
+                System.out.println(i + " adalah bilangan GANJIL");
+            }
+
+            i++;
+        }
+    }
+}
+```
+
+Baris `int i = 1` melakukan deklarasi dan inisiasi pada variabel `i`, yang akan digunakan sebagai variabel acuan kondisi perulangan.
+
+Berbeda dengan perulangan `for`, pada `while` inisiasi tidak dapat dilakukan pada blok `while()`. Dari baris `while (i <= n)`, dapat diketahui bahwa perulangan akan dilakukan selama nilai `i` kurang dari atau sama dengan `n`. Nilai `n` diperoleh dari masukan pengguna melalui baris `int n = scanner.nextInt();`.
+
+Pada tubuh perulangan, terdapat blok `if ... else ...` yang digunakan untuk memeriksa apakah suatu bilangan termasuk bilangan ganjil atau genap.
+
+Hal paling penting dalam perulangan, termasuk `while`, adalah memastikan bahwa pada suatu titik perulangan harus berhenti. Pada kasus ini, perulangan harus berhenti ketika nilai `i` lebih dari nilai `n`. Agar nilai `i` bertambah setiap statement selesai dieksekusi, perlu ditambahkan operasi yang menambah nilai `i` pada tubuh perulangan. Hal ini dapat dilakukan dengan statement `i++` tepat sebelum tubuh perulangan `while` ditutup.
+
+### Contoh 2: Deret Bilangan Prima
+
+```
+import java.util.Scanner;
+
+public class WhilePrimeSeries {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int i = 0;
+        int isPrime = 0, isNotPrime = 0;
+        int counter;
+
+        System.out.print("Masukkan panjang deret: ");
+        int n = scanner.nextInt();
+
+        while (i <= n) {
+            counter = 0;
+            int j = 1;
+
+            while (j <= i) {
+                if (i % j == 0) {
+                    counter += 1;
+                }
+
+                j++;
+            }
+
+            if (counter == 2) {
+                isPrime += i;
+            } else {
+                isNotPrime += i;
+            }
+
+            i++;
+        }
+
+        System.out.println("Prime Series = " + isPrime);
+        System.out.println("Non-prime Series = " + isNotPrime);
+    }
+}
+```
