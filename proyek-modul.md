@@ -27,7 +27,16 @@ public class AmbilInput {
 }
 ```
 
-... Terdapat beberapa _method_ yang dapat digunakan untuk menerima _input_, satu _method_ untuk tiap tipe data.
+Mungkin sekarang timbul pertanyaan, apa itu "`System.in`" yang terletak pada argumen `Scanner`?
+
+`System.in` merupakan sebuah _predefined object_, sebuah objek yang sudah tertanam (_built-in_) pada Java, yang merepresentasikan _standard input stream_. Sederhananya, ia adalah objek yang digunakan apabila kita ingin menerima _input_ melalui _keyboard_.
+
+    Selain `System.in`, _standard stream_ lain yang umum digunakan pada Java diantaranya sebagai berikut.
+
+    -   `System.out` : untuk menampilkan _output_ ke layar.
+    -   `System.err` : untuk mengirimkan pesan _error_.
+
+Terdapat beberapa _method_ yang dapat digunakan untuk menerima _input_, satu _method_ untuk tiap tipe data.
 
 -   .nextInt() : untuk menerima tipe data integer
 -   .nextShort() : untuk menerima tipe data short
@@ -37,7 +46,23 @@ public class AmbilInput {
 -   .nextLine() : untuk menerima tipe data string
 -   .nextBoolean() : untuk menerima tipa data boolean
 
-### Contoh 1: Salam
+### Contoh 1: Sapa \<nama>
+
+```
+import java.util.Scanner;
+
+public class JavaMenyapa {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Nama kamu: ");
+        String nama = scanner.nextLine();
+
+        System.out.println("Halo " + nama + ". Aku Javaludin, salam kenal yaa kenal yaa ^^/");
+    }
+}
+```
 
 ## 1.2. Branching
 
