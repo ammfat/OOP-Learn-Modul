@@ -41,15 +41,15 @@ public class AmbilInput {
 
 ## 1.2. Branching
 
-### 1.2.1. Struktur if-else
+## 1.2.1. Struktur if-else
 
-#### Contoh 1
+### Contoh 1
 
 hahaha
 
-### 1.2.2 Struktur if-elif-else
+## 1.2.2 Struktur if-elif-else
 
-### 1.2.3. Struktur switch-case
+## 1.2.3. Struktur switch-case
 
 ---
 
