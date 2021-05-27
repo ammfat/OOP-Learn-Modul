@@ -43,10 +43,6 @@ public class AmbilInput {
 
 ## 1.2.1. Struktur if-else
 
-### Contoh 1
-
-hahaha
-
 ## 1.2.2 Struktur if-elif-else
 
 ## 1.2.3. Struktur switch-case
