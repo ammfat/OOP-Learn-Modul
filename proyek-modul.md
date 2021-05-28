@@ -1,6 +1,6 @@
 My parts:
 
-1. Input dan Branching
+1. Input dan Branching [DONE]
 2. Looping [DONE]
 3. Array
 4. ArrayList
@@ -284,15 +284,15 @@ Percabangan `if-else if-else` memiliki bentuk dasar sebagai berikut.
 
 ```
 if (kondisiA) {
-    // statement yang dijalankan, bila kondisiA true
+    statement yang dijalankan, bila kondisiA true
 } else if (kondisiB) {
-    // statement yang dijalankan, bila kondisiB true
+    statement yang dijalankan, bila kondisiB true
 } else if (kondisiC) {
-    // statement yang dijalankan, bila kondisiC true
+    statement yang dijalankan, bila kondisiC true
 }
 ...
 else {
-    // statement yang dijalankan untuk kondisi selain itu
+    statement yang dijalankan untuk kondisi selain itu
 }
 ```
 
