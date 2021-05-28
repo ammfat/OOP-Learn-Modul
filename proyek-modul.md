@@ -19,7 +19,7 @@ Agar program dapat menerima masukan dari pengguna, pertama Anda harus mengimpor 
 import java.util.Scanner;
 ```
 
-Selanjutnya, di dalam _class_ yang membutuhkan _input_, deklarasikan _object_ dari _class_ Scanner, misal:
+Selanjutnya, di dalam _class_ yang membutuhkan _input_, deklarasikan _object_ dari _class_ `Scanner`, misal:
 
 ```
 public class AmbilInput {
@@ -31,20 +31,20 @@ Mungkin sekarang timbul pertanyaan, apa itu "`System.in`" yang terletak pada arg
 
 `System.in` merupakan sebuah _predefined object_, sebuah objek yang sudah tertanam (_built-in_) pada Java, yang merepresentasikan _standard input stream_. Sederhananya, ia adalah objek yang digunakan apabila kita ingin menerima _input_ melalui _keyboard_.
 
-    Selain `System.in`, _standard stream_ lain yang umum digunakan pada Java diantaranya sebagai berikut.
+Selain `System.in`, _standard stream_ lain yang umum digunakan pada Java diantaranya sebagai berikut.
 
-    -   `System.out` : untuk menampilkan _output_ ke layar.
-    -   `System.err` : untuk mengirimkan pesan _error_.
+-   `System.out` : untuk menampilkan _output_ ke layar.
+-   `System.err` : untuk mengirimkan pesan _error_.
 
 Terdapat beberapa _method_ yang dapat digunakan untuk menerima _input_, satu _method_ untuk tiap tipe data.
 
--   .nextInt() : untuk menerima tipe data integer
--   .nextShort() : untuk menerima tipe data short
--   .nextLong() : untuk menerima tipe data long
--   .nextDouble() : untuk menerima tipe data double
--   .nextFloat() : untuk menerima tipe data float
--   .nextLine() : untuk menerima tipe data string
--   .nextBoolean() : untuk menerima tipa data boolean
+-   `.nextInt()` : untuk menerima tipe data integer
+-   `.nextShort()` : untuk menerima tipe data short
+-   `.nextLong()` : untuk menerima tipe data long
+-   `.nextDouble()` : untuk menerima tipe data double
+-   `.nextFloat()` : untuk menerima tipe data float
+-   `.nextLine()` : untuk menerima tipe data string
+-   `.nextBoolean()` : untuk menerima tipe data boolean
 
 ### Contoh 1: Sapa \<nama>
 
@@ -59,18 +59,430 @@ public class JavaMenyapa {
         System.out.print("Nama kamu: ");
         String nama = scanner.nextLine();
 
-        System.out.println("Halo " + nama + ". Aku Javaludin, salam kenal yaa kenal yaa ^^/");
+        System.out.println("Halo " + nama + ". Aku Javaludin, salam kenal yaa ^^/");
+    }
+}
+```
+
+Pada program di atas, kita menampilkan nama yang dimasukkan pengguna pada baris `String nama = scanner.nextLine();`.
+
+### Contoh 2: Pembagian a / b
+
+```
+import java.util.Scanner;
+
+public class BagiAB {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double a, b, c;
+
+        System.out.print("Masukkan nilai a\t: ");
+        a = scanner.nextDouble();
+
+        System.out.print("Masukkan nilai b\t: ");
+        b = scanner.nextDouble();
+
+        c = a / b;
+        System.out.print("Hasil a + b\t\t: " + c);
     }
 }
 ```
 
 ## 1.2. Branching
 
-## 1.2.1. Struktur if-else
+Selain antarmuka yang menerima masukan pengguna, sebuah program yang kompleks umumnya juga dapat menangani beberapa kondisi dengan cara yang berbeda.
 
-## 1.2.2 Struktur if-elif-else
+Misal, Anda diminta membuat program yang menerima input angka `integer` dari pengguna, lalu menentukan apakah angka tersebut merupakan bilangan ganjil atau genap. Secara algoritma deskriptif, prosesnya dapat dituliskan sebagai berikut.
 
-## 1.2.3. Struktur switch-case
+1. Dapatkan input angka dari pengguna.
+2. **Jika** angka tersebut habis dibagi 2, **maka** ia adalah bilangan genap. **Jika tidak**, maka ia adalah bilangan ganjil.
+
+Pada bahasa pemrograman, algoritma di atas dapat dituliskan ke dalam kode dalam bentuk struktur percabangan (_branching_). Pada Java, terdapat empat bentuk struktur _branching_, yaitu struktur `if`, `if-else`, `if-else if-else`, dan `switch`.
+
+## 1.2.1. Struktur if
+
+Struktur `if` digunakan untuk pengambilan keputusan terhadap dua buah kemungkinan, apakah kondisi bernilai `true` atau `false`.
+
+Percabangan `if` memiliki bentuk dasar sebagai berikut.
+
+```
+if (kondisi) {
+    statement
+}
+```
+
+Statement pada tubuh `if` hanya akan dieksekusi apabila blok kondisi bernilai `true`.
+
+### Contoh 1: Sapa Hanya Andi
+
+```
+import java.util.Scanner;
+
+public class SapaHanyaAndi {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan nama: ");
+        String nama = scanner.nextLine();
+
+        if (nama.equals("Andi")) {
+            System.out.println("Halo, Andi! :)");
+            System.out.println("Sampai nanti ya, Andi!");
+            System.out.println("...");
+            System.out.println("Mmm, Andi, siapa perempuan di belakangmu itu?");
+        }
+    }
+}
+```
+
+Program di atas menerima masukan dari pengguna melalui baris `String nama = scanner.nextLine();`. Kemudian pada struktur _branching_, ditulis kondisi yang harus dipenuhi agar statement di tubuh `if` dieksekusi, yaitu pada bagian `if (nama.equals("Andi"))`.
+
+Apabila pengguna memberi masukan "Andi", maka statement `nama.equals("Andi")` akan menghasilkan nilai `true`. Oleh sebab blok kondisi bernilai `true`, maka seluruh statement di tubuh `if` akan dieksekusi.
+
+Sebaliknya, apabila pengguna memberi masukan _selain_ "Andi", maka statement `nama.equals("Andi")` akan menghasilkan nilai `false` dan statement di tubuh `if` tidak akan dieksekusi.
+
+### Contoh 2: Cashback Belanja
+
+**_Class Belanja_**
+
+```
+public class Belanja {
+    private final double faktor = 0.2;
+    private final int totalHarga;
+    private double bayar, cashback = 0;
+
+    public Belanja(int totalHarga) {
+        this.totalHarga = totalHarga;
+    }
+
+    public void hitungHarga() {
+        bayar = totalHarga;
+
+        if (totalHarga >= 500000) {
+            cashback = faktor * totalHarga;
+        }
+
+        bayar = bayar - cashback;
+        System.out.println("Silakan bayar sebesar\t: " + bayar);
+    }
+}
+```
+
+**_Class BelanjaKeterusan_**
+
+```
+import java.util.Scanner;
+
+public class BelanjaKeterusan {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Total harga\t: ");
+        int totalHarga = scanner.nextInt();
+
+        Belanja belanja = new Belanja(totalHarga);
+        belanja.hitungHarga();
+    }
+}
+
+```
+
+## 1.2.2. Struktur if-else
+
+Struktur `if-else` digunakan untuk mengatur statement yang dijalankan sewaktu kondisi bernilai `true` atau `false`.
+
+Percabangan `if-else` memiliki bentuk dasar sebagai berikut.
+
+```
+if (kondisi) {
+    statement yang dijalankan bila kondisi bernilai true
+} else {
+    statement yang dijalankan bila kondisi bernilai false
+}
+```
+
+### Contoh 1: Sapa Hanya Andi v2
+
+```
+import java.util.Scanner;
+
+public class SapaHanyaAndi {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan nama: ");
+        String nama = scanner.nextLine();
+
+        if (nama.equals("Andi")) {
+            System.out.println("Halo, Andi! :)");
+            System.out.println("Sampai nanti ya, Andi!");
+            System.out.println("...");
+            System.out.println("Mmm, Andi, siapa perempuan di belakangmu itu?");
+        } else {
+            System.out.println("Loh, siapa kamu?!!");
+        }
+    }
+}
+```
+
+### Contoh 2: Cashback Belanja v2
+
+**_Class Belanja_**
+
+```
+public class Belanja {
+    private final double faktor1 = 0.2, faktor2 = 0.05;
+    private final int totalHarga;
+    private double bayar, cashback = 0;
+
+    public Belanja(int totalHarga) {
+        this.totalHarga = totalHarga;
+    }
+
+    public void hitungHarga() {
+        bayar = totalHarga;
+
+        if (totalHarga >= 500000) {
+            cashback = faktor1 * totalHarga;
+        } else {
+            cashback = faktor2 * totalHarga;
+        }
+
+        bayar = bayar - cashback;
+        System.out.println("Silakan bayar sebesar\t: " + bayar);
+    }
+}
+```
+
+**_Class BelanjaKeterusan_**
+
+```
+import java.util.Scanner;
+
+public class BelanjaKeterusan {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Total harga\t: ");
+        int totalHarga = scanner.nextInt();
+
+        Belanja belanja = new Belanja(totalHarga);
+        belanja.hitungHarga();
+    }
+}
+
+```
+
+## 1.2.3. Struktur if-else if-else
+
+Struktur `if-else if-else` digunakan untuk mengatur statement yang dijalankan sewaktu kondisi berupa pilihan.
+
+Percabangan `if-else if-else` memiliki bentuk dasar sebagai berikut.
+
+```
+if (kondisiA) {
+    // statement yang dijalankan, bila kondisiA true
+} else if (kondisiB) {
+    // statement yang dijalankan, bila kondisiB true
+} else if (kondisiC) {
+    // statement yang dijalankan, bila kondisiC true
+}
+...
+else {
+    // statement yang dijalankan untuk kondisi selain itu
+}
+```
+
+### Contoh 1: Sapa Andi dan Beni
+
+```
+import java.util.Scanner;
+
+public class SapaAndiBeni {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan nama: ");
+        String nama = scanner.nextLine();
+
+        if (nama.equals("Andi")) {
+            System.out.println("Halo, Andi! :)");
+            System.out.println("Sampai nanti ya, Andi!");
+            System.out.println("...");
+            System.out.println("Mmm, Andi, siapa perempuan di belakangmu itu?");
+        } else if (nama.equals("Beni")) {
+            System.out.println("Halo, Beni!");
+            System.out.println("Apa kabarmu? Semoga kamu baik-baik saja.");
+        } else {
+            System.out.println("Loh, siapa kamu?!!");
+        }
+    }
+}
+```
+
+### Contoh 2: Mutu Huruf Nilai
+
+```
+import java.util.Scanner;
+
+public class MutuHuruf {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char mutuHuruf;
+
+        System.out.print("Nilai (0-100)\t: ");
+        double nilai = scanner.nextDouble();
+
+        if (nilai >= 90) {
+            mutuHuruf = 'A';
+        } else if (nilai >= 80) {
+            mutuHuruf = 'B';
+        } else if (nilai >= 70) {
+            mutuHuruf = 'C';
+        } else if (nilai >= 60) {
+            mutuHuruf = 'D';
+        } else {
+            mutuHuruf = 'E';
+        }
+
+        System.out.println("Nilai\t\t: " + nilai);
+        System.out.println("Mutu Huruf\t: " + mutuHuruf);
+    }
+}
+```
+
+## 1.2.4. Struktur switch
+
+Struktur `switch` digunakan untuk melakukan tindakan berbeda terhadap sejumlah kemungkinan nilai.
+
+Percabangan `switch` memiliki bentuk dasar sebagai berikut.
+
+```
+switch (ekspresi) {
+    case nilaiSatu:
+        statement_1
+        break;
+    case nilaiDua:
+        statement_2
+        break;
+    ...
+    default: statement_n;
+}
+```
+
+### Contoh 1: Sapa Andi dan Beni v2
+
+```
+import java.util.Scanner;
+
+public class SapaAndiBeni {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan nama: ");
+        String nama = scanner.nextLine();
+
+        switch (nama) {
+            case "Andi":
+                System.out.println("Halo, Andi! :)");
+                System.out.println("Sampai nanti ya, Andi!");
+                System.out.println("...");
+                System.out.println("Mmm, Andi, siapa perempuan di belakangmu itu?");
+                break;
+            case "Beni":
+                System.out.println("Halo, Beni!");
+                System.out.println("Apa kabarmu? Semoga kamu baik-baik saja.");
+                break;
+            default:
+                System.out.printl   n("Loh, siapa kamu?!!");
+                break;
+        }
+    }
+}
+```
+
+Apabila Anda _copas_ kode di atas pada Netbeans IDE, Netbeans akan menyarankan perubahan secara sintaks. Anda bebas memilih menggunakan penulisan sintaks yang ditawarkan ataupun tetap menggunakan sintaks awal. Berikut adalah sintaks kode setelah diubah sesuai saran dari Netbeans IDE
+
+```
+import java.util.Scanner;
+
+public class SapaAndiBeni {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan nama: ");
+        String nama = scanner.nextLine();
+
+        switch (nama) {
+            case "Andi" -> {
+                System.out.println("Halo, Andi! :)");
+                System.out.println("Sampai nanti ya, Andi!");
+                System.out.println("...");
+                System.out.println("Mmm, Andi, siapa perempuan di belakangmu itu?");
+            }
+            case "Beni" -> {
+                System.out.println("Halo, Beni!");
+                System.out.println("Apa kabarmu? Semoga kamu baik-baik saja.");
+            }
+            default -> System.out.println("Loh, siapa kamu?!!");
+        }
+    }
+}
+```
+
+### Contoh 2: Mutu Huruf Nilai v2
+
+```
+import java.util.Scanner;
+
+public class MutuHuruf {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char mutuHuruf;
+
+        System.out.print("Nilai (0-100)\t: ");
+        double nilai = scanner.nextDouble();
+
+        if (nilai >= 90) {
+            mutuHuruf = 'A';
+        } else if (nilai >= 80) {
+            mutuHuruf = 'B';
+        } else if (nilai >= 70) {
+            mutuHuruf = 'C';
+        } else if (nilai >= 60) {
+            mutuHuruf = 'D';
+        } else {
+            mutuHuruf = 'E';
+        }
+
+        System.out.println("Nilai\t\t: " + nilai);
+        System.out.println("Mutu Huruf\t: " + mutuHuruf);
+
+        switch (mutuHuruf) {
+            case 'A':
+                System.out.println("Sangat bagus! Jaga terus!!");
+                break;
+            case 'B':
+                System.out.println("Sedikit lagi untuk mencapai puncak!");
+                break;
+            case 'C':
+                System.out.println("Hati-hati! Kamu di zona rawan, TERUS SEMANGAT!!");
+                break;
+            case 'D':
+                System.out.println("Ayoo! Perbanyak belajar, KAMU PASTI BISA!");
+                break;
+            case 'E':
+                System.out.println("Yuk, bisa yuk!");
+                break;
+            default:
+                System.out.println("Terdapat kesalahan pada sistem");
+        }
+    }
+}
+```
 
 ---
 
