@@ -778,6 +778,151 @@ public class DoWhilePrima {
 
 # 3. Array
 
-### Contoh 1: ?
+Cobalah Anda buat program sederhana untuk menampilkan sebuah daftar yang berisi maksimal lima (5) musik yang sering Anda putar.
 
-### Contoh 2: ??
+...
+
+Apakah di dalam program tersebut Anda menulis kode serupa seperti ini?
+
+```
+public static void main(String[] args) {
+    String musikFavorit = "Musik 1, Musik 2, Musik 3, Musik 4, Musik 5"
+    System.out.println(musikFavorit);
+}
+```
+
+Atau mungkin serupa seperti ini?
+
+```
+public static void main(String[] args) {
+    String musikFavorit1 = "Musik 1",
+            musikFavorit2 = "Musik 2",
+            musikFavorit3 = "Musik 3",
+            musikFavorit4 = "Musik 4",
+            musikFavorit5 = "Musik 5";
+
+    System.out.println(musikFavorit1);
+    System.out.println(musikFavorit2);
+    System.out.println(musikFavorit3);
+    System.out.println(musikFavorit4);
+    System.out.println(musikFavorit5);
+}
+```
+
+Kode-kode tersebut tentunya berjalan normal. Namun, terdapat cara yang lebih baik untuk menampilkan kumpulan data identik dibanding cara di atas, yaitu dengan menggunakan `array` (larik).
+
+_Array_ merupakan sebuah struktur data yang digunakan untuk menyimpan kumpulan data dengan tipe data yang sama. Oleh sebab menampung sekumpulan data, _array_ akan memiliki ukuran dengan nilai yang sama dengan banyaknya data yang ditampung oleh _array_ tersebut. Ukuran sebuah _array_ bersifat statis (tidak dapat diubah sepanjang program).
+
+## 3.1. Deklarasi dan Inisialisasi Array
+
+Berikut adalah cara-cara membuat _array_ pada Java dengan studi kasus sebelumnya.
+
+```
+// Cara 1: kurung siku setelah tipe data
+String[] musikFavorit;
+musikFavorit = new String[5];
+
+// Cara 2: kurung siku setelah nama variabel
+String musikFavorit[];
+musikFavorit = new String[5];
+
+// Cara 3: cara 1 atau 2 disingkat
+String musikFavorit[] = new String[5];
+```
+
+Angka **5** pada baris kode di atas berarti _array_ tersebut berukuran 5. _Array_ yang telah dibuat dapat diinisialisasi dengan cara berikut.
+
+```
+musikFavorit[0] = "Musik 1";
+musikFavorit[1] = "Musik 2";
+musikFavorit[2] = "Musik 3";
+musikFavorit[3] = "Musik 4";
+musikFavorit[4] = "Musik 5";
+```
+
+Anda juga dapat menyingkat deklarasi dan inisiasi dengan cara seperti berikut.
+
+```
+String musikFavorit[] = {"Musik 1", "Musik 2", "Musik 3", "Musik 4", "Musik 5"};
+```
+
+### Contoh 1: Daftar Musik Favorit
+
+```
+import java.util.Scanner;
+
+public class ArrayContohMusik {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        scanner.useDelimiter("\n");
+
+        String musikFavorit[] = new String[5];
+
+        for (int i = 0; i < musikFavorit.length; i++) {
+            System.out.print("Musik ke-" + (i+1) + ": ");
+            musikFavorit[i] = scanner.nextLine();
+        }
+
+        for (String mF: musikFavorit) {
+            System.out.println(mF);
+        }
+    }
+}
+```
+
+Baris `scanner.useDelimiter("\n");` digunakan agar pengguna dapat memasukkan data di baris `musikFavorit[i] = scanner.nextLine();` pada perulangan secara _normal_. Silakan Anda coba hapus baris `scanner.useDelimiter("\n");` dan lihat efeknya pada program.
+
+Terdapat juga bentuk perulangan baru yang Anda pelajari, yaitu `for-each` pada bagian:
+
+```
+for (String mF: musikFavorit) {
+    System.out.println(mF);
+}
+```
+
+Bentuk perulangan ini sangat baik digunakan apabila Anda ingin _mendapatkan nilai_ yang ditampung pada _array_.
+
+## 3.2. Array Multidimensi
+
+Pada **Contoh 1**, _array_ yang dibuat merupakan _array_ 1 dimensi. Apakah ada _array_ 2 dimensi, 3 dimensi, atau singkatnya multidimensi? Ya, ada.
+
+Cara membuat _array_ multidimensi adalah dengan memberikan lebih dari 1 kurung siku. Tiap kurung siku pada _array_ mewakili dimensinya.
+
+```
+String arrayKu[];        // array 1 dimensi
+String arrayMu[][];      // array 2 dimensi
+String arrayKita[][][];  // array 3 dimensi
+```
+
+Berapa banyak dimensi yang dapat dibuat? Sebanyak yang Anda sanggup ketik.
+
+### Contoh 2: Array Multidimensi
+
+```
+import java.util.Scanner;
+
+public class ArrayMultidimensi {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[][] nama = {
+            {"Kang ", "Teh ", "Mbak "},
+            {"Beni", "Eni", null}
+        };
+
+        System.out.println(nama[0][0] + nama[1][0]);
+        System.out.println(nama[0][1] + nama[1][1]);
+        System.out.println(nama[0][2] + nama[1][0]);
+
+        System.out.print("Masukkan orang baru: ");
+        String orangBaru = scanner.nextLine();
+
+        nama[1][2] = orangBaru;
+
+        System.out.print("-----\nSelamat datang ");
+        System.out.println(nama[0][2] + nama[1][2]);
+    }
+}
+```
