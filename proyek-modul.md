@@ -773,3 +773,11 @@ public class DoWhilePrima {
     }
 }
 ```
+
+---
+
+# 3. Array
+
+### Contoh 1: ?
+
+### Contoh 2: ??
