@@ -948,7 +948,6 @@ import java.util.ArrayList;
 ArrayList arrayListKu = new ArrayList();
 
 ...
-
 ```
 
 ## 4.1. Menambah dan Mengakses Elemen
@@ -994,8 +993,6 @@ Selain mengakses elemen berdasarkan index-nya dengan _method_ `.get()`, Anda jug
         System.out.println(daftarFilm.indexOf(85));
 ...
 ```
-
-### Contoh 2: Mengakses Index
 
 ## 4.2. Menghapus Elemen
 
