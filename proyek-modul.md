@@ -811,7 +811,7 @@ public static void main(String[] args) {
 
 Kode-kode tersebut tentunya berjalan normal. Namun, terdapat cara yang lebih baik untuk menampilkan kumpulan data identik dibanding cara di atas, yaitu dengan menggunakan `array` (larik).
 
-_Array_ merupakan sebuah struktur data yang digunakan untuk menyimpan kumpulan data dengan tipe data yang sama. Oleh sebab menampung sekumpulan data, _array_ akan memiliki ukuran dengan nilai yang sama dengan banyaknya data yang ditampung oleh _array_ tersebut. Ukuran sebuah _array_ bersifat statis (tidak dapat diubah sepanjang program).
+_Array_ merupakan sebuah struktur data yang digunakan untuk menyimpan kumpulan data dengan tipe data yang sama. Oleh sebab menampung sekumpulan data, _array_ akan memiliki ukuran yang nilainya sama dengan banyaknya data yang ditampung oleh _array_ tersebut. Ukuran sebuah _array_ bersifat statis (tidak dapat diubah sepanjang program).
 
 ## 3.1. Deklarasi dan Inisialisasi Array
 
@@ -830,7 +830,7 @@ musikFavorit = new String[5];
 String musikFavorit[] = new String[5];
 ```
 
-Angka **5** pada baris kode di atas berarti _array_ tersebut berukuran 5. _Array_ yang telah dibuat dapat diinisialisasi dengan cara berikut.
+Angka **5** pada baris kode di atas menunjukkan _array_ tersebut berukuran 5. _Array_ yang telah dibuat dapat diinisialisasi dengan cara berikut.
 
 ```
 musikFavorit[0] = "Musik 1";
