@@ -809,13 +809,13 @@ public static void main(String[] args) {
 }
 ```
 
-Kode-kode tersebut tentunya berjalan normal. Namun, terdapat cara yang lebih baik untuk menampilkan kumpulan data identik dibanding cara di atas, yaitu dengan menggunakan `array` (larik).
+Kode-kode tersebut tentunya berjalan normal. Namun, terdapat cara yang lebih baik untuk menampilkan kumpulan data identik dibanding cara di atas, yaitu dengan menggunakan array (larik).
 
-_Array_ merupakan sebuah struktur data yang digunakan untuk menyimpan kumpulan data dengan tipe data yang sama. Oleh sebab menampung sekumpulan data, _array_ akan memiliki ukuran yang nilainya sama dengan banyaknya data yang ditampung oleh _array_ tersebut. Ukuran sebuah _array_, biasa juga disebut panjangnya, bersifat statis (tidak dapat diubah sepanjang program).
+Array merupakan sebuah struktur data yang digunakan untuk menyimpan kumpulan data dengan tipe data yang sama. Oleh sebab menampung sekumpulan data, array akan memiliki ukuran yang nilainya sama dengan banyaknya data yang ditampung oleh array tersebut. Ukuran sebuah array, biasa juga disebut panjangnya, bersifat statis (tidak dapat diubah sepanjang program).
 
 ## 3.1. Deklarasi dan Inisialisasi Array
 
-Berikut adalah cara-cara membuat _array_ pada Java dengan studi kasus sebelumnya.
+Berikut adalah cara-cara membuat array pada Java dengan studi kasus sebelumnya.
 
 ```
 // Cara 1: kurung siku setelah tipe data
@@ -830,7 +830,7 @@ musikFavorit = new String[5];
 String musikFavorit[] = new String[5];
 ```
 
-Angka **5** pada baris kode di atas menunjukkan _array_ tersebut berukuran 5. _Array_ yang telah dibuat dapat diinisialisasi dengan cara berikut.
+Angka **5** pada baris kode di atas menunjukkan array tersebut berukuran 5. Array yang telah dibuat dapat diinisialisasi dengan cara berikut.
 
 ```
 musikFavorit[0] = "Musik 1";
@@ -873,7 +873,7 @@ public class ArrayContohMusik {
 
 Baris `scanner.useDelimiter("\n");` digunakan agar pengguna dapat memasukkan data di baris `musikFavorit[i] = scanner.nextLine();` pada perulangan secara _normal_. Silakan Anda coba hapus baris `scanner.useDelimiter("\n");` dan lihat efeknya pada program.
 
-_Method_ `.length()` pada bagian `for (int i = 0; i < musikFavorit.length; i++)` digunakan untuk mendapatkan panjang _array_, sehingga perulangan dilakukan selama nilai `i` kurang dari panjang _array_.
+_Method_ `.length()` pada bagian `for (int i = 0; i < musikFavorit.length; i++)` digunakan untuk mendapatkan panjang array, sehingga perulangan dilakukan selama nilai `i` kurang dari panjang array.
 
 Terdapat juga bentuk perulangan baru yang Anda pelajari, yaitu `for-each` pada bagian:
 
@@ -883,13 +883,13 @@ for (String mF: musikFavorit) {
 }
 ```
 
-Bentuk perulangan ini sangat baik digunakan apabila Anda ingin _mendapatkan nilai_ yang ditampung pada _array_.
+Bentuk perulangan ini sangat baik digunakan apabila Anda ingin _mendapatkan nilai_ yang ditampung pada array.
 
 ## 3.2. Array Multidimensi
 
-Pada **Contoh 1**, _array_ yang dibuat merupakan _array_ 1 dimensi. Apakah ada _array_ 2 dimensi, 3 dimensi, 4 dimensi, atau singkatnya: multidimensi? Jawabannya, ada.
+Pada **Contoh 1**, array yang dibuat merupakan array 1 dimensi. Apakah ada array 2 dimensi, 3 dimensi, 4 dimensi, atau singkatnya: multidimensi? Jawabannya, ada.
 
-Cara membuat _array_ multidimensi adalah dengan memberikan lebih dari 1 kurung siku. Tiap kurung siku pada _array_ mewakili jumlah dimensinya.
+Cara membuat array multidimensi adalah dengan memberikan lebih dari 1 kurung siku. Tiap kurung siku pada array mewakili jumlah dimensinya.
 
 ```
 String arrayKu[];        // array 1 dimensi
@@ -933,10 +933,190 @@ public class ArrayMultidimensi {
 
 # 4. Array List
 
-## Subbab 1
+Array list merupakan sebuah struktur data yang dikembangkan untuk menutupi kekurangan dari array. Array list memiliki beberapa kelebihan dibandingkan dengan array, yaitu sebagai berikut.
 
-## Subbab 2
+-   Mampu menampung data dengan tipe data berbeda.
+-   Memiliki ukuran yang dinamis.
 
-### Contoh 1
+Array list dapat digunakan dengan mengimpor _class_ `ArrayList` dan membuat objeknya.
 
-### Contoh 2
+```
+import java.util.ArrayList;
+
+...
+
+ArrayList arrayListKu = new ArrayList();
+
+...
+
+```
+
+## 4.1. Menambah dan Mengakses Elemen
+
+**Pada array**, apabila sebuah index belum memiliki nilai, maka Java akan secara otomatis menginisialisasinya dengan `0`, `null`, atau `false` (bergantung pada tipe data array tersebut). Namun, **pada array list**, hal itu tidak akan terjadi. Hal ini disebabkan array list hanya akan menambah index-nya apabila pengguna menambahkan elemen kedalam objek array list tersebut.
+
+_Method_ yang digunakan untuk menambah elemen pada array list adalah `.add(elemen)`. Sedangkan untuk mengaksesnya, gunakan _method_ `.get(indexElemen)`.
+
+### Contoh 1: Menambah dan Mengakses Elemen
+
+```
+import java.util.ArrayList;
+
+public class ContohArrayList {
+
+    public static void main(String[] args) {
+        ArrayList daftarFilm = new ArrayList();
+
+        daftarFilm.add("Habibie & Ainun");
+        daftarFilm.add("Interstellar");
+        daftarFilm.add("Your Name");
+        daftarFilm.add(85);
+        daftarFilm.add(false);
+        daftarFilm.add(85);
+
+        System.out.println(daftarFilm + " | " + daftarFilm.size());
+        System.out.println(daftarFilm.get(1));
+        System.out.println(daftarFilm.get(3));
+
+        // Baris di bawah ini akan menghasilkan Exception
+        // System.out.println(daftarFilm.get(3));
+    }
+}
+```
+
+Perhatikan bahwa pada kode di atas, Anda tidak perlu mendeklarasikan berapa ukuran atau panjang dari `daftarFilm`. Selain itu, Anda juga dapat menambahkan data dengan berbagai tipe data berbeda. Bagian kode `daftarFilm.size()` digunakan untuk mendapatkan ukuran dari array list `daftarFilm`.
+
+Selain mengakses elemen berdasarkan index-nya dengan _method_ `.get()`, Anda juga dapat melakukan hal sebaliknya pada array list: mengakses index berdasarkan elemennya. Hal ini dapat dilakukan dengan menggunakan _method_ `.indexOf(elemen)`. Cobalah tambahkan baris kode berikut pada _main method_ program di atas.
+
+```
+...
+        System.out.println(daftarFilm.indexOf(74));
+        System.out.println(daftarFilm.indexOf(85));
+...
+```
+
+### Contoh 2: Mengakses Index
+
+## 4.2. Menghapus Elemen
+
+Array list juga memiliki fitur untuk menghapus elemennya dengan mudah, yaitu dengan _method_ `.remove(elemen_atau_indexElemen)`.
+
+### Contoh 2: Menghapus Elemen
+
+```
+import java.util.ArrayList;
+
+public class ContohArrayList {
+
+    public static void main(String[] args) {
+        ArrayList daftarFilm = new ArrayList();
+
+        daftarFilm.add("Your Name");
+        daftarFilm.add(86);
+        daftarFilm.add(false);
+        daftarFilm.add(86);
+        daftarFilm.add(0.77);
+
+        System.out.println(daftarFilm + " | " + daftarFilm.size());
+
+        /* Hapus elemen berdasarkan value */
+
+        daftarFilm.remove("Your Name");
+        System.out.println(daftarFilm + " | " + daftarFilm.size());
+
+        daftarFilm.remove(false);
+        System.out.println(daftarFilm + " | " + daftarFilm.size());
+
+        daftarFilm.remove(Integer.valueOf(86));
+        System.out.println(daftarFilm + " | " + daftarFilm.size());
+
+        /* Hapus elemen berdasarkan index */
+        daftarFilm.remove(1);
+        System.out.println(daftarFilm + " | " + daftarFilm.size());
+    }
+}
+```
+
+Perhatikan bahwa untuk menghapus elemen dengan tipe data `integer`, Anda harus menambahkan _method_ `Integer.valueOf(elemen)`. Jika ini tidak dilakukan, Java akan menganggap integer yang dilewatkan sebagai index, bukan elemen.
+
+## 4.3. Objek sebagai Elemen
+
+Sebelumnya, Anda telah menambahkan elemen dengan tipe data primitif maupun reference. Anda juga dapat menambahkan objek sebagai elemen pada array list.
+
+Perhatikan contoh berikut.
+
+### Contoh 3: Daftar Film
+
+**_Class Film_**
+
+```
+public class Film {
+    private final String judul;
+    private final int tahunRilis;
+
+    public Film (String judul, int tahunRilis) {
+        this.judul = judul;
+        this.tahunRilis = tahunRilis;
+    }
+
+    public String getJudul() {
+        return judul;
+    }
+
+    public int getTahunRilis() {
+        return tahunRilis;
+    }
+}
+```
+
+**_Class FilmKu_**
+
+```
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class FilmKu {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Film> daftarFilm = new ArrayList<>();
+
+        scanner.useDelimiter("\n");
+
+        /* Input Data */
+
+        System.out.print("Jumlah Film\t: ");
+        int n = scanner.nextInt();
+        System.out.println("");
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Judul Film [" + (i+1) + "]\t: ");
+            String judulFilm = scanner.next();
+
+            System.out.print("Tahun Rilis [" + (i+1) + "]\t: ");
+            int tahunRilis = scanner.nextInt();
+
+            Film film = new Film(judulFilm, tahunRilis);
+            daftarFilm.add(film);
+
+            System.out.println("---- ---- ---- ---- ----\n");
+        }
+
+
+        /* Tampilkan Data yang telah di-input */
+
+        System.out.println("=== DAFTAR FILMKU ===");
+
+        for (int i = 0; i < daftarFilm.size(); i++) {
+            System.out.println("> Film + [" + (i+1) + "] <");
+
+            String judul = daftarFilm.get(i).getJudul();
+            int tahunRilis = daftarFilm.get(i).getTahunRilis();
+
+            System.out.println("Judul Film\t:" + judul);
+            System.out.println("Tahun Rilis\t: " + tahunRilis);
+
+            System.out.println("---- ---- ---- ---- ----\n");
+        }
+    }
+}
+```
