@@ -811,7 +811,7 @@ public static void main(String[] args) {
 
 Kode-kode tersebut tentunya berjalan normal. Namun, terdapat cara yang lebih baik untuk menampilkan kumpulan data identik dibanding cara di atas, yaitu dengan menggunakan `array` (larik).
 
-_Array_ merupakan sebuah struktur data yang digunakan untuk menyimpan kumpulan data dengan tipe data yang sama. Oleh sebab menampung sekumpulan data, _array_ akan memiliki ukuran yang nilainya sama dengan banyaknya data yang ditampung oleh _array_ tersebut. Ukuran sebuah _array_ bersifat statis (tidak dapat diubah sepanjang program).
+_Array_ merupakan sebuah struktur data yang digunakan untuk menyimpan kumpulan data dengan tipe data yang sama. Oleh sebab menampung sekumpulan data, _array_ akan memiliki ukuran yang nilainya sama dengan banyaknya data yang ditampung oleh _array_ tersebut. Ukuran sebuah _array_, biasa juga disebut panjangnya, bersifat statis (tidak dapat diubah sepanjang program).
 
 ## 3.1. Deklarasi dan Inisialisasi Array
 
@@ -872,6 +872,8 @@ public class ArrayContohMusik {
 ```
 
 Baris `scanner.useDelimiter("\n");` digunakan agar pengguna dapat memasukkan data di baris `musikFavorit[i] = scanner.nextLine();` pada perulangan secara _normal_. Silakan Anda coba hapus baris `scanner.useDelimiter("\n");` dan lihat efeknya pada program.
+
+_Method_ `.length()` pada bagian `for (int i = 0; i < musikFavorit.length; i++)` digunakan untuk mendapatkan panjang _array_, sehingga perulangan dilakukan selama nilai `i` kurang dari panjang _array_.
 
 Terdapat juga bentuk perulangan baru yang Anda pelajari, yaitu `for-each` pada bagian:
 
