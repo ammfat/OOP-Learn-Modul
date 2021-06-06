@@ -885,9 +885,9 @@ Bentuk perulangan ini sangat baik digunakan apabila Anda ingin _mendapatkan nila
 
 ## 3.2. Array Multidimensi
 
-Pada **Contoh 1**, _array_ yang dibuat merupakan _array_ 1 dimensi. Apakah ada _array_ 2 dimensi, 3 dimensi, atau singkatnya multidimensi? Ya, ada.
+Pada **Contoh 1**, _array_ yang dibuat merupakan _array_ 1 dimensi. Apakah ada _array_ 2 dimensi, 3 dimensi, 4 dimensi, atau singkatnya: multidimensi? Jawabannya, ada.
 
-Cara membuat _array_ multidimensi adalah dengan memberikan lebih dari 1 kurung siku. Tiap kurung siku pada _array_ mewakili dimensinya.
+Cara membuat _array_ multidimensi adalah dengan memberikan lebih dari 1 kurung siku. Tiap kurung siku pada _array_ mewakili jumlah dimensinya.
 
 ```
 String arrayKu[];        // array 1 dimensi
