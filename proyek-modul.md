@@ -38,13 +38,13 @@ Selain `System.in`, _standard stream_ lain yang umum digunakan pada Java diantar
 
 Terdapat beberapa _method_ yang dapat digunakan untuk menerima _input_, satu _method_ untuk tiap tipe data.
 
--   `.nextInt()` : untuk menerima tipe data integer
--   `.nextShort()` : untuk menerima tipe data short
--   `.nextLong()` : untuk menerima tipe data long
--   `.nextDouble()` : untuk menerima tipe data double
--   `.nextFloat()` : untuk menerima tipe data float
--   `.nextLine()` : untuk menerima tipe data string
--   `.nextBoolean()` : untuk menerima tipe data boolean
+-   `.nextInt()` : menerima masukan bertipe data integer.
+-   `.nextShort()` : menerima masukan bertipe data short.
+-   `.nextLong()` : menerima masukan bertipe data long.
+-   `.nextDouble()` : menerima masukan bertipe data double.
+-   `.nextFloat()` : menerima masukan bertipe data float.
+-   `.nextLine()` : menerima masukan bertipe data string.
+-   `.nextBoolean()` : menerima masukan bertipe data boolean.
 
 ### Contoh 1: Sapa \<nama>
 
@@ -283,12 +283,12 @@ Struktur `if-else if-else` digunakan untuk mengatur statement yang dijalankan se
 Percabangan `if-else if-else` memiliki bentuk dasar sebagai berikut.
 
 ```
-if (kondisiA) {
-    statement yang dijalankan, bila kondisiA true
-} else if (kondisiB) {
-    statement yang dijalankan, bila kondisiB true
-} else if (kondisiC) {
-    statement yang dijalankan, bila kondisiC true
+if (kondisiSatu) {
+    statement yang dijalankan, bila kondisiSatu true
+} else if (kondisiDua) {
+    statement yang dijalankan, bila kondisiDua true
+} else if (kondisiTiga) {
+    statement yang dijalankan, bila kondisiTiga true
 }
 ...
 else {
@@ -885,6 +885,70 @@ for (String mF: musikFavorit) {
 
 Bentuk perulangan ini sangat baik digunakan apabila Anda ingin _mendapatkan nilai_ yang ditampung pada array.
 
+### Contoh 2: Circular Array
+
+Sebuah _array_ disebut '_circular_' (melingkar) apabila elemen setelah elemen terakhir _array_ tersebut merupakan elemen elemen pertamanya. _Circular array_ merupakan salah satu penerapan stuktur data _queue_ (antrian)
+
+[ilustrasi]
+
+Berikut adalah contoh penerapan _circular array_ pada Java.
+
+**_*Class CircularArray*_**
+
+```
+public class CircularArray {
+    private final char ABJAD_AF[];
+    private final char HASIL[] = new char[6];
+    private final int ind, n;
+    private int i;
+
+    public CircularArray(char abjadAF[], int ind) {
+        this.ABJAD_AF = abjadAF;
+        this.ind = ind;
+
+        this.n = this.ABJAD_AF.length;
+        this.i = this.ind;
+    }
+
+    public char[] cariCircular() {
+        while (i < n + ind) {
+            HASIL[i - ind] = ABJAD_AF[i % n];
+            i++;
+        }
+
+        return HASIL;
+    }
+}
+```
+
+**_*Class CircularArrayBerputar*_**
+
+```
+import java.util.Scanner;
+
+public class CircularArrayBerputar {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        final char ABJAD_AF[] = {'A', 'B', 'C', 'D', 'E', 'F'};
+
+        System.out.print("Pergeseran: ");
+        int ind = scanner.nextInt();
+
+        CircularArray circularArray = new CircularArray(ABJAD_AF, ind);
+        char hasilCircular[] = circularArray.cariCircular();
+
+        System.out.println("----------");
+        System.out.println(ABJAD_AF);
+        System.out.println("Berputar " + ind + "x, sehingga menjadi:");
+        System.out.println(hasilCircular);
+    }
+}
+```
+
+Cobalah modifikasi program di atas dengan mengubah tipe data _array_-nya menjadi `String`.
+
 ## 3.2. Array Multidimensi
 
 Pada **Contoh 1**, array yang dibuat merupakan array 1 dimensi. Apakah ada array 2 dimensi, 3 dimensi, 4 dimensi, atau singkatnya: multidimensi? Jawabannya, ada.
@@ -899,7 +963,7 @@ String arrayKita[][][];  // array 3 dimensi
 
 Berapa banyak dimensi yang dapat dibuat? Sebanyak yang Anda sanggup ketik.
 
-### Contoh 2: Array Multidimensi
+### Contoh 3: Array Multidimensi
 
 ```
 import java.util.Scanner;
