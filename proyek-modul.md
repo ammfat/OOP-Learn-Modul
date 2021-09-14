@@ -1,12 +1,3 @@
-My parts:
-
-1. Input dan Branching [DONE]
-2. Looping [DONE]
-3. Array [DONE]
-4. ArrayList [DONE]
-
----
-
 # 1. Input dan Branching
 
 ## 1.1. Input
